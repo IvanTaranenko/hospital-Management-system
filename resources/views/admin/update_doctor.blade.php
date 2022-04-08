@@ -9,6 +9,7 @@
 @section('content')
 
 
+
     <div class="container " style="margin-top: 50px">
         <div class="row">
             <div class="col-md-6 grid-margin stretch-card ">
@@ -26,39 +27,39 @@
                         @endif
 
 
-                        <form class="forms-sample" method="POST" action="{{url('upload_doctor')}}"
-                              enctype="multipart/form-data">
+                        <form action="{{url('editdoctor,$doctors->id')}}" method="POST" enctype="multipart/form-data">
                             @csrf
                             <div class="form-group">
                                 <label for="name">Doctor Name</label>
                                 <input type="text" class="form-control" id="name" name="name"
-                                       placeholder="Write the name">
+                                       value="{{$doctors->name}}">
                             </div>
                             <div class="form-group">
                                 <label for="phone">Phone</label>
                                 <input type="text" class="form-control" id="phone" name="phone"
-                                       placeholder="Write the phone">
+                                       value="{{$doctors->phone}}">
                             </div>
                             <div class="form-group">
-                                <label for="speciality">Speciality</label>
-                                <select class="form-control form-control-lg" id="speciality" name="speciality">
-                                    <option>----Select-----</option>
-                                    <option value="Skin">Skin</option>
-                                    <option value="Heart">Heart</option>
-                                    <option value="eye">eye</option>
-                                    <option value="nose">nose</option>
 
-                                </select>
-                            </div>
                             <div class="form-group">
                                 <label for="room">Room No</label>
                                 <input type="text" class="form-control" id="room" name="room"
-                                       placeholder="Write the Room No">
+                                       value="{{$doctors->room}}">
                             </div>
-                            <div class="form-group">
-                                <label for="file">Doctor Image</label>
-                                <input type="file" class="form-control" id="file" multiple name="image">
-                            </div>
+                                <div class="form-group">
+                                    <label for="room">Speciality</label>
+                                    <input type="text" class="form-control" id="room" name="speciality"
+                                           value="{{$doctors->speciality}}">
+                                </div>
+{{--                            <div class="form-group">--}}
+{{--                                <label >Old Image</label>--}}
+{{--                                <img src="doctors/Image/{{$doctors->image}}" alt=""  type="file" class="form-control" id="file" multiple name="image">--}}
+{{--                            </div>--}}
+
+{{--                                <div class="form-group">--}}
+{{--                                    <label >Change  Image</label>--}}
+{{--                                    <input    type="file" class="form-control"  multiple name="image">--}}
+{{--                                </div>--}}
 
                             <button type="submit" class="btn btn-primary mr-2">Submit</button>
                         </form>
